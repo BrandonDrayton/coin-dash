@@ -22,7 +22,7 @@ export const Homepage = () => {
                 <Col span={12}><Statistic title='Total 24hr Change in Market Cap' value={millify(data.data.market_cap_change_percentage_24h_usd) + '%'} /></Col>
             </Row>
             <div className='home-heading-container'>
-                <Title level={2} className='home-title'>Top 10 Cryptocurrencies in the world</Title>
+                <Title level={2} className='home-title'>Top 10 Crypto</Title>
                 <Title level={3} className='show-more'><Button><Link to='/cryptocurrencies'>Show More</Link></Button></Title>
             </div>
             <Cryptocurrencies10 />

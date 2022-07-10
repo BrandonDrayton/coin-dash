@@ -42,7 +42,7 @@ export const Exchanges = () => {
                                     </Row>
                                 )}
                             >
-                                Something Here
+                                <a href={exchange.url}>{exchange.url}</a>
                             </Panel>
                         </Collapse>
                     </Col>
