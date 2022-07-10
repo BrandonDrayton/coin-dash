@@ -1,0 +1,8 @@
+span {
+    width: 100%;
+}
+
+span div {
+    display: flex;
+    align-items: center;
+}

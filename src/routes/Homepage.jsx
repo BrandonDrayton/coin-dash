@@ -1,62 +1,36 @@
 import React from 'react'
-// import millify from 'millify'
-import { Typography, Row, Col, Statistic } from 'antd'
-import { useEffect, useState } from "react"
+import millify from 'millify'
+import { Typography, Row, Col, Statistic, Button } from 'antd'
 import { Link } from 'react-router-dom'
-import { Cryptocurrencies } from './Cryptocurrencies'
-import { News } from './News'
+import { useGetGlobalStatsQuery } from '../services/cryptoGlobalApi'
+import { Cryptocurrencies10 } from '../components/CryptoCurrencies10'
+import News from './News'
 const { Title } = Typography
 
-
 export const Homepage = () => {
-    const [exchanges, setExchanges] = useState([])
-    const [globalStats, setGlobalStats] = useState([])
-    const getGlobalStats = () => {
-        fetch('https://api.coinpaprika.com/v1/global')
-            .then(res => res.json())
-            .then(stats => {
-                setGlobalStats(stats)
+    const { data, error, isLoading } = useGetGlobalStatsQuery('global')
 
-            })
-    }
-
-    useEffect(() => {
-        getGlobalStats()
-    }, [])
-    const getExchanges = () => {
-        fetch('https://api.coinpaprika.com/v1/exchanges')
-            .then(res => res.json())
-            .then(exchange => {
-                setExchanges(exchange)
-
-            })
-    }
-
-    useEffect(() => {
-        getExchanges()
-    }, [])
-
-
+    if (isLoading) return null
     return (
         <>
             <Title level={2} className='heading'>Global Crypto Stats</Title>
             <Row>
-                <Col span={12}><Statistic title='Total Cryptocurrencies' value={globalStats.cryptocurrencies_number} /></Col>
-                <Col span={12}><Statistic title='Total Exchanges' value={exchanges.length} /></Col>
-                <Col span={12}><Statistic title='Total Market Cap' value={globalStats.market_cap_usd} /></Col>
-                <Col span={12}><Statistic title='Total 24hr Volume' value={globalStats.volume_24h_usd} /></Col>
-                <Col span={12}><Statistic title='Total 24hr Change in Market Cap' value={`${globalStats.volume_24h_change_24h}%`} /></Col>
+                <Col span={12}><Statistic title='Total Cryptocurrencies' value={data.data.active_cryptocurrencies} /></Col>
+                <Col span={12}><Statistic title='Total Exchanges' value={data.data.markets} /></Col>
+                <Col span={12}><Statistic title='Total Market Cap' value={millify(data?.data.total_market_cap.usd ?? 0)} /></Col>
+                <Col span={12}><Statistic title='Total 24hr Volume' value={millify(data?.data.total_volume.usd ?? 0)} /></Col>
+                <Col span={12}><Statistic title='Total 24hr Change in Market Cap' value={millify(data.data.market_cap_change_percentage_24h_usd) + '%'} /></Col>
             </Row>
             <div className='home-heading-container'>
                 <Title level={2} className='home-title'>Top 10 Cryptocurrencies in the world</Title>
-                <Title level={3} className='show-more'><Link to='/cryptocurrencies'>Show More</Link></Title>
+                <Title level={3} className='show-more'><Button><Link to='/cryptocurrencies'>Show More</Link></Button></Title>
             </div>
-            <Cryptocurrencies simplified />
+            <Cryptocurrencies10 />
             <div className='home-heading-container'>
                 <Title level={2} className='home-title'>Latest Crypto</Title>
                 <Title level={3} className='show-more'><Link to='/news'>Show More</Link></Title>
             </div>
-            <News simplified />
+            <News />
         </>
     )
 }

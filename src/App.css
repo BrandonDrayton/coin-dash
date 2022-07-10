@@ -25,6 +25,11 @@ a:hover {
 .navbar {
     flex: 0.2;
     background-color: rgb(0, 21, 41);
+    width: auto !important;
+}
+
+.navbar span {
+    width: auto !important;
 }
 
 .main {
@@ -44,6 +49,7 @@ a:hover {
     height: 100vh;
     margin: 0px;
     background-color: rgb(0, 21, 41);
+    max-width: fit-content;
 }
 
 .logo-container {
