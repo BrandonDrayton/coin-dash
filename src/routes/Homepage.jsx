@@ -1,16 +1,16 @@
 import React from 'react'
 import millify from 'millify'
-import { Typography, Row, Col, Statistic, Button } from 'antd'
+import { Typography, Row, Col, Statistic, Button, Skeleton } from 'antd'
 import { Link } from 'react-router-dom'
 import { useGetGlobalStatsQuery } from '../services/cryptoGlobalApi'
 import { Cryptocurrencies10 } from '../components/CryptoCurrencies10'
-import { Watchlist } from './Watchlist'
+import { CompaniesList } from './CompaniesList'
 const { Title } = Typography
 
 export const Homepage = () => {
     const { data, error, isLoading } = useGetGlobalStatsQuery('global')
 
-    if (isLoading) return null
+    if (isLoading) return <Skeleton />
     return (
         <>
             <Title level={2} className='heading'>Global Crypto Stats</Title>
@@ -27,10 +27,10 @@ export const Homepage = () => {
             </div>
             <Cryptocurrencies10 />
             <div className='home-heading-container'>
-                <Title level={2} className='home-title'>Watchlist</Title>
-                <Title level={3} className='show-more'><Link to='/watchlist'>Show More</Link></Title>
+                <Title level={2} className='home-title'>Companies</Title>
+                <Title level={3} className='show-more'><Link to='/companyList'>Show More</Link></Title>
             </div>
-            <Watchlist />
+            <CompaniesList />
         </>
     )
 }

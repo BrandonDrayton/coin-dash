@@ -1,17 +1,17 @@
-import { Typography, Avatar, Collapse, Row, Col } from 'antd'
+import { Typography, Avatar, Collapse, Row, Col, Skeleton } from 'antd'
 import millify from 'millify'
 import React from 'react'
 import { useGetExchangeStatsQuery } from '../services/cryptoExchangesApi'
 import './Exchanges.css'
 
 
-const { Panel } = Collapse;
+const { Panel } = Collapse
 const { Text } = Typography
 
 export const Exchanges = () => {
     const { data, error, isLoading } = useGetExchangeStatsQuery('exchanges')
     console.log(data)
-    if (isLoading) return null
+    if (isLoading) return <Skeleton />
     return (
         <>
             <Row>

@@ -1,5 +1,5 @@
 export { Cryptocurrencies } from './Cryptocurrencies'
 export { Homepage } from './Homepage'
 export { Exchanges } from './Exchanges'
-export { Watchlist } from './Watchlist'
 export { CryptoDetails } from './CryptoDetails'
+export { CompaniesList } from './CompaniesList'

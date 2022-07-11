@@ -6,8 +6,8 @@ import Chart from 'chart.js/auto'
 const { Title } = Typography
 
 function LineGraph({ coinHistory, currentPrice, coinName }) {
-    const coinPrice = [];
-    const coinTimestamp = [];
+    const coinPrice = []
+    const coinTimestamp = []
 
 
     coinHistory.prices.map((price) => (coinPrice?.push(price[1])))
@@ -26,7 +26,7 @@ function LineGraph({ coinHistory, currentPrice, coinName }) {
                 borderJoinStyle: 'round',
             },
         ],
-    };
+    }
 
     const options = {
         scales: {
@@ -38,7 +38,7 @@ function LineGraph({ coinHistory, currentPrice, coinName }) {
                 },
             ],
         },
-    };
+    }
     return (
         <>
             <Row className="chart-header">

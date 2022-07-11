@@ -12,9 +12,12 @@ export const cryptoCoinsApi = createApi({
         getCoinsHistory: builder.query({
             query: ({ coinId, timePeriod }) => `coins/${coinId}/market_chart?vs_currency=usd&days=${timePeriod}`,
         }),
+        getCompanyCoins: builder.query({
+            query: () => `companies/public_treasury/bitcoin`
+        }),
     }),
 })
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useGetCoinsStatsQuery, useGetCoinsHistoryQuery } = cryptoCoinsApi
+export const { useGetCoinsStatsQuery, useGetCoinsHistoryQuery, useGetCompanyCoinsQuery } = cryptoCoinsApi
