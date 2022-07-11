@@ -31,7 +31,7 @@ export const Exchanges = () => {
                                 header={(
                                     <Row key={i} >
                                         <Col span={5}>
-                                            {/* <Text><strong>{i + 1}.</strong></Text> */}
+                                            <Text><strong>{i + 1}. </strong></Text>
                                             <Avatar className="exchange-image" src={exchange.image} />
                                             <Text><strong>{exchange.name}</strong></Text>
                                         </Col>

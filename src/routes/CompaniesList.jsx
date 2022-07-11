@@ -9,7 +9,7 @@ const { Text } = Typography
 
 
 export function CompaniesList() {
-    const { data, error, isLoading } = useGetCompanyCoinsQuery('public_treasury/bitcoin')
+    const { data, error, isLoading } = useGetCompanyCoinsQuery('')
     console.log(data)
     if (isLoading) return null
     return (

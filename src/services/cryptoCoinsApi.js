@@ -15,9 +15,12 @@ export const cryptoCoinsApi = createApi({
         getCompanyCoins: builder.query({
             query: () => `companies/public_treasury/bitcoin`
         }),
+        getTrendingCoins: builder.query({
+            query: () => `search/trending`
+        }),
     }),
 })
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useGetCoinsStatsQuery, useGetCoinsHistoryQuery, useGetCompanyCoinsQuery } = cryptoCoinsApi
+export const { useGetCoinsStatsQuery, useGetCoinsHistoryQuery, useGetCompanyCoinsQuery, useGetTrendingCoinsQuery } = cryptoCoinsApi

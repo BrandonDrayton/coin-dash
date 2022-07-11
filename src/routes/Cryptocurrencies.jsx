@@ -20,6 +20,7 @@ export const Cryptocurrencies = () => {
     useEffect(() => {
         getCryptoArray()
     }, [])
+    
     return (
         <>
             <Row gutter={[32, 32]} className='crypto-card-container'>
