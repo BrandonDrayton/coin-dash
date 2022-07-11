@@ -11,7 +11,7 @@ function Navbar() {
                 <Typography.Title level={2} className='logo'>
                     <Link to='/'>Crypto Dash</Link>
                 </Typography.Title>
-                {/* <Button className='menu-control-container'></Button> */}
+                <Button className='menu-control-container'></Button>
             </div>
             <Menu theme='dark'>
                 <Menu.Item icon={<HomeOutlined />}>
@@ -24,7 +24,7 @@ function Navbar() {
                     <Link to='/exchanges'>Exchanges</Link>
                 </Menu.Item>
                 <Menu.Item icon={<BulbOutlined />}>
-                    <Link to='/news'>News</Link>
+                    <Link to='/watchlist'>Watch List</Link>
                 </Menu.Item>
             </Menu>
 

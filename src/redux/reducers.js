@@ -1,14 +1,20 @@
-import { showMore, SHOW_MORE } from "./actions"
+import { ADD_CRYPTO, REMOVE_CRYPTO } from "./actions"
 
 const defaultState = {
-    showMore: false
+    cryptos: [],
 }
 
-export function cryptoReducer(state = defaultState, action) {
+export const watchlistReducer = (state = defaultState, action) => {
     switch (action.type) {
-        case SHOW_MORE:
+        case ADD_CRYPTO:
             return {
-                showMore: !state.showMore
+                ...state,
+                cryptos: [...state.cryptos, action.crypto],
+            }
+        case REMOVE_CRYPTO:
+            return {
+                ...state,
+                cryptos: state.cryptos.filter(crypto => crypto.rank !== action.crypto.rank)
             }
         default:
             return state
