@@ -7,11 +7,14 @@ export const cryptoCoinsApi = createApi({
     baseQuery: fetchBaseQuery({ baseUrl: 'https://api.coingecko.com/api/v3/' }),
     endpoints: (builder) => ({
         getCoinsStats: builder.query({
-            query: (coinsStats) => `/${coinsStats}`,
+            query: (coinId) => `coins/${coinId}/?tickers=true&market_data=true`,
+        }),
+        getCoinsHistory: builder.query({
+            query: ({ coinId, timePeriod }) => `coins/${coinId}/market_chart?vs_currency=usd&days=${timePeriod}&`,
         }),
     }),
 })
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useGetCoinsStatsQuery } = cryptoCoinsApi
+export const { useGetCoinsStatsQuery, useGetCoinsHistoryQuery } = cryptoCoinsApi
