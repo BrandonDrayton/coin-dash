@@ -10,7 +10,7 @@ export const cryptoCoinsApi = createApi({
             query: (coinId) => `coins/${coinId}/?tickers=true&market_data=true`,
         }),
         getCoinsHistory: builder.query({
-            query: ({ coinId, timePeriod }) => `coins/${coinId}/market_chart?vs_currency=usd&days=${timePeriod}&`,
+            query: ({ coinId, timePeriod }) => `coins/${coinId}/market_chart?vs_currency=usd&days=${timePeriod}`,
         }),
     }),
 })

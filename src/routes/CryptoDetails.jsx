@@ -5,6 +5,7 @@ import LineGraph from '../components/LineGraph'
 import { useGetCoinsStatsQuery, useGetCoinsHistoryQuery } from '../services/cryptoCoinsApi'
 import { MoneyCollectOutlined, DollarCircleOutlined, FundOutlined, ExclamationCircleOutlined, StopOutlined, TrophyOutlined, CheckOutlined, NumberOutlined, ThunderboltOutlined } from '@ant-design/icons';
 import millify from 'millify'
+import { Spin } from 'antd'
 const { Title, Text } = Typography
 const { Option } = Select
 
@@ -32,7 +33,7 @@ export const CryptoDetails = () => {
         { title: 'Total Supply', value: `$ ${data?.market_data.max_supply && millify(data?.market_data.max_supply)}`, icon: <ExclamationCircleOutlined /> },
         { title: 'Circulating Supply', value: `$ ${data?.market_data.circulating_supply && millify(data?.market_data.circulating_supply)}`, icon: <ExclamationCircleOutlined /> },
     ];
-    if (isFetching) return null
+    if (isFetching) return Spin
     return (
         <Col className="coin-detail-container">
             <Col className="coin-heading-container">
@@ -44,7 +45,7 @@ export const CryptoDetails = () => {
             <Select defaultValue="7d" className="select-timeperiod" placeholder="Select Timeperiod" onChange={(value) => setTimePeriod(value)}>
                 {time.map((date, i) => <Option key={i}>{date}</Option>)}
             </Select>
-            <LineGraph coinHistory={coinHistory.prices} currentPrice={millify(data?.market_data.current_price.usd)} coinName={data?.name} />
+            <LineGraph coinHistory={coinHistory} currentPrice={millify(data?.market_data.current_price.usd)} coinName={data?.name} />
             <Col className="stats-container">
                 <Col className="coin-value-statistics">
                     <Col className="coin-value-statistics-heading">
