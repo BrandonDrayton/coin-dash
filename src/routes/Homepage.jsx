@@ -27,10 +27,9 @@ export const Homepage = () => {
             </div>
             <Cryptocurrencies10 />
             <div className='home-heading-container'>
-                <Title level={2} className='home-title'>Companies</Title>
-                <Title level={3} className='show-more'><Link to='/companyList'>Show More</Link></Title>
+                <Title level={2} className='home-title'>Latest Crypto</Title>
             </div>
-            <CompaniesList />
+
         </>
     )
 }

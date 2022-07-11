@@ -14,9 +14,11 @@ export const CryptoDetails = () => {
     const [timePeriod, setTimePeriod] = useState('7')
     const { data, isFetching } = useGetCoinsStatsQuery(coinId)
     const { data: coinHistory } = useGetCoinsHistoryQuery({ coinId, timePeriod })
+
+
     console.log(data)
     console.log(coinHistory)
-    const time = ['1d', '3d', '7d', '30d', '100d', '365d', '500d', '1000d']
+    const time = ['1d', '3d', '7d', '30d', '90d', '150d', '265d', '500', '1000d']
 
     const stats = [
         { title: 'Price to USD', value: `$ ${data?.market_data.current_price.usd && millify(data?.market_data.current_price.usd)}`, icon: <DollarCircleOutlined /> },
