@@ -15,7 +15,7 @@ export const CryptoDetails = () => {
     const { data: coinHistory } = useGetCoinsHistoryQuery({ coinId, timePeriod })
     console.log(data)
     console.log(coinHistory)
-    const time = ['3h', '24h', '7d', '30d', '1y', '3m', '3y', '5y']
+    const time = ['1d', '3d', '7d', '30d', '100d', '365d', '500d', '1000d']
 
     const stats = [
         { title: 'Price to USD', value: `$ ${data?.market_data.current_price.usd && millify(data?.market_data.current_price.usd)}`, icon: <DollarCircleOutlined /> },
@@ -42,9 +42,9 @@ export const CryptoDetails = () => {
                 <p>{data.name} live price in US Dollar (USD). View value statistics, market cap and supply.</p>
             </Col>
             <Select defaultValue="7d" className="select-timeperiod" placeholder="Select Timeperiod" onChange={(value) => setTimePeriod(value)}>
-                {time.map((date) => <Option key={date}>{date}</Option>)}
+                {time.map((date, i) => <Option key={i}>{date}</Option>)}
             </Select>
-            <LineGraph coinHistory={coinHistory} currentPrice={millify(data?.market_data.current_price.usd)} coinName={data?.name} />
+            <LineGraph coinHistory={coinHistory.prices} currentPrice={millify(data?.market_data.current_price.usd)} coinName={data?.name} />
             <Col className="stats-container">
                 <Col className="coin-value-statistics">
                     <Col className="coin-value-statistics-heading">
@@ -80,14 +80,14 @@ export const CryptoDetails = () => {
             <Col className="coin-desc-link">
                 <Row className="coin-desc">
                     <Title level={3} className="coin-details-heading">What is {data.name}?</Title>
-                    {/* {HTMLReactParser(data.description)} */}
+                    {data.description.en}
                 </Row>
                 <Col className="coin-links">
                     <Title level={3} className="coin-details-heading">{data.name} Links</Title>
-                    {data.links.blockchain_site.map((link) => (
-                        <Row className="coin-link" key={link.name}>
-                            <Title level={5} className="link-name">{link.type}</Title>
-                            <a href={link.url} target="_blank" rel="noreferrer">{link.name}</a>
+                    {data.links.blockchain_site.map((link, i) => (
+                        <Row className="coin-link" key={i}>
+                            <Title level={5} className="link-name">Blockchain</Title>
+                            <a href={link} target="_blank" rel="noreferrer">{link}</a>
                         </Row>
                     ))}
                 </Col>

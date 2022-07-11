@@ -1,8 +1,18 @@
-export const SHOW_MORE = 'SHOW_MORE'
+export const ADD_CRYPTO = 'watchlist/ADD_CRYPTO'
+export const REMOVE_CRYPTO = 'watchlist/REMOVE_CRYPTO'
 
-export const showMore = (clicked) => {
+// add CRYPTO to watchlist
+export const addCrypto = (crypto) => {
     return {
-        type: SHOW_MORE,
-        clicked
+        type: ADD_CRYPTO,
+        crypto,
+    }
+}
+
+// remove CRYPTO from watchlist
+export const removeCrypto = (crypto) => {
+    return {
+        type: REMOVE_CRYPTO,
+        crypto,
     }
 }
