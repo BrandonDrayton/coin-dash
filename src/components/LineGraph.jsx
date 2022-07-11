@@ -9,9 +9,9 @@ function LineGraph({ coinHistory, currentPrice, coinName }) {
     const coinPrice = []
     const coinTimestamp = []
 
-
     coinHistory.prices.map((price) => (coinPrice?.push(price[1])))
-    coinHistory.prices.map((date) => (coinTimestamp?.push(new Date(date[0]))).toLocaleString())
+    coinHistory.prices.map((date) => (coinTimestamp?.push(new Date(date[0]).toLocaleString())))
+    console.log(coinTimestamp)
     console.log(coinHistory)
     const data = {
         labels: coinTimestamp,
