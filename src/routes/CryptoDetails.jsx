@@ -6,6 +6,7 @@ import { useGetCoinsStatsQuery, useGetCoinsHistoryQuery } from '../services/cryp
 import { MoneyCollectOutlined, DollarCircleOutlined, FundOutlined, ExclamationCircleOutlined, StopOutlined, TrophyOutlined, CheckOutlined, NumberOutlined, ThunderboltOutlined } from '@ant-design/icons'
 import millify from 'millify'
 import { Spin } from 'antd'
+import Add from '../components/Add'
 const { Title, Text } = Typography
 const { Option } = Select
 
@@ -35,23 +36,25 @@ export const CryptoDetails = () => {
         { title: 'Total Supply', value: `$ ${data?.market_data.max_supply && millify(data?.market_data.max_supply)}`, icon: <ExclamationCircleOutlined /> },
         { title: 'Circulating Supply', value: `$ ${data?.market_data.circulating_supply && millify(data?.market_data.circulating_supply)}`, icon: <ExclamationCircleOutlined /> },
     ]
-    const [value, setValue] = useState(1);
+    const [value, setValue] = useState(1)
 
     const onChange = (e) => {
-        console.log('radio checked', e.target.value);
-        setTimePeriod(e.target.value);
+        console.log('radio checked', e.target.value)
+        setTimePeriod(e.target.value)
     }
     if (isFetching) return <Skeleton />
 
     return (
 
         <Col className="coin-detail-container">
+            <Add />
             <Col className="coin-heading-container">
                 <Title level={2} className="coin-name">
                     {data?.name} ({data?.symbol}) Price
                 </Title>
                 <p>{data.name} live price in US Dollar (USD). View value statistics, market cap and supply.</p>
             </Col>
+
             <Radio.Group buttonStyle='solid' onChange={onChange} defaultValue="7d" value={value}>
                 {time.map((date) => <Radio buttonStyle='solid' value={date}>{date}</Radio>)}
             </Radio.Group>

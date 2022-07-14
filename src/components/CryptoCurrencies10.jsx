@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react'
 import millify from 'millify'
 import { Link } from 'react-router-dom'
-import { Card, Row, Col, Input } from 'antd'
+import { Card, Row, Col, Input, Button } from 'antd'
 import { useState } from 'react'
+import Add from './Add'
 
 
 export const Cryptocurrencies10 = () => {

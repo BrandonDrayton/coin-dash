@@ -4,7 +4,6 @@ import { Typography, Row, Col, Statistic, Button, Skeleton } from 'antd'
 import { Link } from 'react-router-dom'
 import { useGetGlobalStatsQuery } from '../services/cryptoGlobalApi'
 import { Cryptocurrencies10 } from '../components/CryptoCurrencies10'
-import { CompaniesList } from './CompaniesList'
 import LatestCrypto from '../components/LatestCrypto'
 const { Title } = Typography
 
@@ -30,7 +29,7 @@ export const Homepage = () => {
             <div className='home-heading-container'>
                 <Title level={2} className='home-title'>Latest Crypto</Title>
             </div>
-            <LatestCrypto/>
+            <LatestCrypto />
         </>
     )
 }

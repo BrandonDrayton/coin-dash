@@ -1,18 +1,18 @@
-export const ADD_CRYPTO = 'watchlist/ADD_CRYPTO'
-export const REMOVE_CRYPTO = 'watchlist/REMOVE_CRYPTO'
+export const ADD_CRYPTO = 'ADD_CRYPTO'
+export const REMOVE_CRYPTO = 'REMOVE_CRYPTO'
 
 // add CRYPTO to watchlist
-export const addCrypto = (crypto) => {
+export const addCrypto = (text) => {
     return {
         type: ADD_CRYPTO,
-        crypto,
+        text: text
     }
 }
 
 // remove CRYPTO from watchlist
-export const removeCrypto = (crypto) => {
+export const removeCrypto = (text) => {
     return {
         type: REMOVE_CRYPTO,
-        crypto,
+        text: text
     }
 }
