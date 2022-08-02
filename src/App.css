@@ -127,8 +127,13 @@ a:hover {
     .ant-menu {
         position: absolute;
         right: 0px;
+        width: inherit;
+        justify-content: center;
+        display: flex;
     }
-
+    .routes{
+        margin-top: 3em;
+    }
     .home-title {
         font-size: 1.4rem !important;
     }
