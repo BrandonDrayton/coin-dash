@@ -23,6 +23,10 @@ a:hover {
     width: auto !important;
 }
 
+.stats {
+    width: 0;
+}
+
 .main {
     flex: 0.8;
     width: 100%;

@@ -22,19 +22,19 @@ export const CryptoDetails = () => {
     const time = ['1d', '3d', '7d', '30d', '90d', '150d', '265d', '500', '1000d']
 
     const stats = [
-        { title: 'Price to USD', value: `$ ${data?.market_data.current_price.usd && millify(data?.market_data.current_price.usd)}`, icon: <DollarCircleOutlined /> },
+        { title: 'Price to USD', value: ` $${data?.market_data.current_price.usd && millify(data?.market_data.current_price.usd)}`, icon: <DollarCircleOutlined /> },
         { title: 'Rank', value: data?.market_cap_rank, icon: <NumberOutlined /> },
-        { title: '24h Volume', value: `$ ${data?.market_data.market_cap.usd && millify(data?.market_data.market_cap.usd)}`, icon: <ThunderboltOutlined /> },
-        { title: 'Market Cap', value: `$ ${data?.market_data.market_cap.usd && millify(data?.market_data.market_cap.usd)}`, icon: <DollarCircleOutlined /> },
-        { title: 'All-time-high(daily avg.)', value: `$ ${data?.market_data.high_24h.usd && millify(data?.market_data.high_24h.usd)}`, icon: <TrophyOutlined /> },
+        { title: '24h Volume', value: ` $${data?.market_data.market_cap.usd && millify(data?.market_data.market_cap.usd)}`, icon: <ThunderboltOutlined /> },
+        { title: 'Market Cap', value: ` $${data?.market_data.market_cap.usd && millify(data?.market_data.market_cap.usd)}`, icon: <DollarCircleOutlined /> },
+        { title: 'All-time-high(daily avg.)', value: ` $${data?.market_data.high_24h.usd && millify(data?.market_data.high_24h.usd)}`, icon: <TrophyOutlined /> },
     ]
 
     const genericStats = [
         { title: 'Number Of Markets', value: data?.market_data.max_supply, icon: <FundOutlined /> },
         { title: 'Number Of Exchanges', value: data?.market_data.max_supply, icon: <MoneyCollectOutlined /> },
         { title: 'Aprroved Supply', value: data?.market_data.max_supply ? <CheckOutlined /> : <StopOutlined />, icon: <ExclamationCircleOutlined /> },
-        { title: 'Total Supply', value: `$ ${data?.market_data.max_supply && millify(data?.market_data.max_supply)}`, icon: <ExclamationCircleOutlined /> },
-        { title: 'Circulating Supply', value: `$ ${data?.market_data.circulating_supply && millify(data?.market_data.circulating_supply)}`, icon: <ExclamationCircleOutlined /> },
+        { title: 'Total Supply', value: ` $${data?.market_data.max_supply && millify(data?.market_data.max_supply)}`, icon: <ExclamationCircleOutlined /> },
+        { title: 'Circulating Supply', value: ` $${data?.market_data.circulating_supply && millify(data?.market_data.circulating_supply)}`, icon: <ExclamationCircleOutlined /> },
     ]
     const [value, setValue] = useState(1)
 
