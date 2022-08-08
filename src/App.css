@@ -76,21 +76,21 @@ a:hover {
     align-items: center;
 }
 
-@media screen and (max-width:1300px) {
-    .main {
-        margin-left: 50px;
-    }
-}
-
 @media screen and (max-width:1170px) {
     .main {
-        margin-left: 50px;
+        padding-left: 3em
     }
 }
 
 @media screen and (max-width:1000px) {
     .main {
-        margin-left: 100px;
+        padding-left: 3em
+    }
+}
+
+@media screen and (max-width:930px) {
+    .main {
+        padding-left: 5em
     }
 }
 
@@ -109,6 +109,7 @@ a:hover {
         margin-top: 90px;
         margin-left: 0px;
         margin-right: 10px;
+        padding-left: 0;
     }
 
     .nav-container {
@@ -133,6 +134,10 @@ a:hover {
     }
     .routes{
         margin-top: 3em;
+    }
+    .logo-container{
+        display: flex;
+    justify-content: center;
     }
     .home-title {
         font-size: 1.4rem !important;
