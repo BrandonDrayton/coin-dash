@@ -125,7 +125,7 @@ export const CryptoDetails = () => {
 
   return (
     <Col className="coin-detail-container">
-      <Add />
+      {/* <Add /> */}
       <Col className="coin-heading-container">
         <Title level={2} className="coin-name">
           {data?.name} ({data?.symbol}) Price
@@ -200,7 +200,7 @@ export const CryptoDetails = () => {
           <Title level={3} className="coin-details-heading">
             What is {data.name}?
           </Title>
-          {data.description.en}
+          <Text className="coin-details-text">{data.description.en}</Text>
         </Row>
         <Col className="coin-links">
           <Title level={3} className="coin-details-heading">
