@@ -9,7 +9,7 @@ import { useState } from 'react'
 export const Cryptocurrencies = () => {
     const [cryptoArray, setCryptoArray] = useState([])
     const getCryptoArray = () => {
-        fetch('https://api.coingecko.com/api/v3/coins')
+        fetch('https://api.coingecko.com/api/v3/coins/')
             .then(res => res.json())
             .then(coins => {
                 setCryptoArray(coins)
@@ -26,7 +26,7 @@ export const Cryptocurrencies = () => {
             <Row gutter={[32, 32]} className='crypto-card-container'>
                 {cryptoArray.map((coin) => (
                     <Col xs={24} sm={12} lg={6} key={coin.localization.en}>
-                        <Link to={`/crypto/${coin.id}`}>
+                        <Link to={`crypto/${coin.id}`}>
                             <Card
                                 title={`${coin.market_data.market_cap_rank}. ${coin.name}`}
                                 extra={<img className='crypto-image' src={coin.image.thumb} alt='crypto' />}
